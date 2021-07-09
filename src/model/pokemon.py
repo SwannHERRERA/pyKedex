@@ -11,13 +11,14 @@ class Pokemon:
 
     def __str__(self):
         pokemon = f'''
-        name: {self.name}\n
-        speed: {self.speed}\n
-        attack: {self.attack}\n
-        life: {self.life}\n
-        weight: {self.weight}\n
-        '''
+name: {self.name}
+speed: {self.speed}
+attack: {self.attack}
+life: {self.life}
+weight: {self.weight}
+'''
         pokemon += self.types_to_string()
+        pokemon += '\n'
         pokemon += self.moves_to_string()
         return pokemon
 
