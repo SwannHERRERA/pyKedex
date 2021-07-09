@@ -1,5 +1,6 @@
 import requests
 from config import Config
+from parser.pokemon import parse_pokemon
 import typer
 
 app = typer.Typer()
@@ -26,12 +27,9 @@ def get_pokemon_by_name(name: str):
 
 def get_pokemon(param):
     res = requests.get(config.baseUrl + f'/pokemon/{param}')
-    pokes = res.json()
-    print(pokes['name'])
-    print(pokes['types'][0]['type']['name'])
-    print(pokes['weight'])
-    print("{}: {}".format(pokes['stats'][0]['stat']
-          ['name'], pokes['stats'][0]['base_stat']))
+    poke = res.json()
+    pokemon = parse_pokemon(poke)
+    print(pokemon)
 
 
 if __name__ == "__main__":
