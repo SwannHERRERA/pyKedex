@@ -2,6 +2,7 @@ import requests
 from config import Config
 from parser.pokemon import parse_pokemon
 from parser.types import parse_type
+from parser.item import parse_item
 import typer
 
 app = typer.Typer()
@@ -45,6 +46,14 @@ def get_type(param):
     type_json = res.json()
     t = parse_type(type_json)
     print(t)
+
+@app.command()
+def get_item(param):
+    res = requests.get(config.baseUrl + f'/item/{param}')
+    item_json = res.json()
+    item = parse_item(item_json)
+    print(item)
+    
 
 if __name__ == "__main__":
     app()
