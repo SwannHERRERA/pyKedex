@@ -33,12 +33,13 @@ def get_pokemon_by_name(name: str):
 
 
 def get_pokemon(param):
+    img_path = "image.txt"
     res = requests.get(config.baseUrl + f"/pokemon/{param}")
     poke = res.json()
     pokemon = parse_pokemon(poke)
-    image = ImgTransformer(pokemon.img_url, "image.txt")
+    image = ImgTransformer(pokemon.img_url, img_path)
     image.save_to_file()
-    webbrowser.open()
+    webbrowser.open(img_path)
     print(pokemon)
 
 
