@@ -1,5 +1,6 @@
 from model.pokemon import Pokemon
 from config import PokeStat
+from logger import Logger
 
 
 def parse_pokemon(pokemon_json):

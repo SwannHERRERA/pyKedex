@@ -7,6 +7,7 @@ from parser.move import parse_move
 from parser.location import parse_location
 from img_process.img_transform import ImgTransformer
 import webbrowser
+from logger import logger, log
 
 import typer
 
@@ -32,6 +33,7 @@ def get_pokemon_by_name(name: str):
     get_pokemon(name)
 
 
+@log
 def get_pokemon(param):
     img_path = "image.txt"
     res = requests.get(config.baseUrl + f"/pokemon/{param}")
@@ -39,6 +41,7 @@ def get_pokemon(param):
     pokemon = parse_pokemon(poke)
     image = ImgTransformer(pokemon.img_url, img_path)
     image.save_to_file()
+    logger.log(pokemon.name)
     webbrowser.open(img_path)
     print(pokemon)
 
