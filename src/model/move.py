@@ -7,15 +7,14 @@ class Move:
         self.pokemons = pokemons
 
     def __str__(self):
-        return (
-            f"""
+        res = f"""
 move: {self.name}
 type: {self.type}
 power: {self.power}
 accuracy: {self.accuracy}
 """
-            + self.get_pokemons()
-        )
+        res += self.get_pokemons()
+        return res
 
     def get_pokemons(self):
         res = "eligible pokemons: [ "

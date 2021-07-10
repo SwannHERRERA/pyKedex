@@ -4,6 +4,7 @@ from parser.pokemon import parse_pokemon
 from parser.types import parse_type
 from parser.item import parse_item
 from parser.move import parse_move
+from parser.location import parse_location
 import typer
 
 app = typer.Typer()
@@ -65,6 +66,14 @@ def get_move(param):
     move_json = res.json()
     move = parse_move(move_json)
     print(move)
+
+
+@app.command()
+def get_location(param):
+    res = requests.get(config.baseUrl + f"/location/{param}")
+    location_json = res.json()
+    location = parse_location(location_json)
+    print(location)
 
 
 if __name__ == "__main__":
