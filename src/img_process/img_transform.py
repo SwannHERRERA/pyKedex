@@ -9,8 +9,9 @@ class ImgTransformer:
         "@M%WXmBU&ZQ$dpOLwh8kYCn#bqaxJoIuf0}(])[{tz|/jvc\\?l+*ri<1>!^~_\";-,`:'. "
     )
 
-    def __init__(self, img_url, char_list=None):
+    def __init__(self, img_url, output_file, char_list=None):
         self.img_url = img_url
+        self.output_file = output_file
         self.load_img_from_url()
         if char_list is not None:
             self.char_list = char_list
@@ -46,6 +47,5 @@ class ImgTransformer:
 
     def save_to_file(self):
         ascii_image = self.pixels_to_ascii()
-        result_filename = "result_file.txt"
-        with open(result_filename, "w") as f:
+        with open(self.output_file, "w") as f:
             f.write(ascii_image)

@@ -36,6 +36,9 @@ def get_pokemon(param):
     res = requests.get(config.baseUrl + f"/pokemon/{param}")
     poke = res.json()
     pokemon = parse_pokemon(poke)
+    image = ImgTransformer(pokemon.img_url, "image.txt")
+    image.save_to_file()
+    webbrowser.open()
     print(pokemon)
 
 
@@ -77,18 +80,6 @@ def get_location(param):
     location_json = res.json()
     location = parse_location(location_json)
     print(location)
-
-
-@app.command()
-def display_image(param):
-    res = requests.get(config.baseUrl + f"/pokemon/{param}")
-    poke = res.json()
-    pokemon = parse_pokemon(poke)
-    image = ImgTransformer(pokemon.img_url)
-    print(pokemon.img_url)
-    print(image.pixels_to_ascii())
-    image.save_to_file()
-    webbrowser.open("result_file.txt")
 
 
 if __name__ == "__main__":
