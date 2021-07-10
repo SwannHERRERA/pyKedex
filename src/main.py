@@ -6,6 +6,7 @@ from parser.item import parse_item
 from parser.move import parse_move
 from parser.location import parse_location
 from img_process.img_transform import ImgTransformer
+import webbrowser
 
 import typer
 
@@ -86,6 +87,8 @@ def display_image(param):
     image = ImgTransformer(pokemon.img_url)
     print(pokemon.img_url)
     print(image.pixels_to_ascii())
+    image.save_to_file()
+    webbrowser.open("result_file.txt")
 
 
 if __name__ == "__main__":

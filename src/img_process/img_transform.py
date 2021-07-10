@@ -1,6 +1,7 @@
 import sys
 import requests
 from PIL import Image
+import webbrowser
 
 
 class ImgTransformer:
@@ -27,13 +28,24 @@ class ImgTransformer:
         self.img = self.img.convert("L")
 
     def pixels_to_ascii(self):
+
         width, height = 100, 100
-        ascii_factor = 80  # TODO find a good name
-        print(height)
+        # lower is ascii_factor = better detail
+        ascii_factor = 20
         self.resize(width, height)
         self.grayfy()
         pixels = self.img.getdata()
         characters = "".join(
             [self.ascii_char[pixel // ascii_factor] for pixel in pixels]
         )
-        return characters
+        pixel_count = len(characters)
+        ascii_image = "\n".join(
+            characters[i : (i + height)] for i in range(0, pixel_count, height)
+        )
+        return ascii_image
+
+    def save_to_file(self):
+        ascii_image = self.pixels_to_ascii()
+        result_filename = "result_file.txt"
+        with open(result_filename, "w") as f:
+            f.write(ascii_image)
