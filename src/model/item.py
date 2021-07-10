@@ -6,4 +6,9 @@ class Item:
         self.category = category
 
     def __str__(self):
-        return f'{self.id} {self.name}: {self.cost}$ categorie: {self.category}'
+        return f"""
+id: {self.id}
+name: {self.name}
+price: {self.cost}$
+categorie: {self.category}
+"""

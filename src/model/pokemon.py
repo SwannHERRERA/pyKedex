@@ -10,29 +10,28 @@ class Pokemon:
         self.weight = weight
 
     def __str__(self):
-        pokemon = f'''
+        pokemon = f"""
 name: {self.name}
 speed: {self.speed}
 attack: {self.attack}
 life: {self.life}
 weight: {self.weight}
-'''
+"""
         pokemon += self.types_to_string()
-        pokemon += '\n'
+        pokemon += "\n"
         pokemon += self.moves_to_string()
         return pokemon
 
     def types_to_string(self):
-        s = 'types: [ '
+        s = "types: [ "
         for name in self.types:
-            s += f'{name} '
-        s += ' ]\n'
+            s += f"{name} "
+        s += " ]\n"
         return s
-    
+
     def moves_to_string(self):
-        s = 'moves: [ '
+        s = "moves: [ "
         for name in self.moves:
-            s += f'{name} '
-        s += ' ]\n'
+            s += f"{name} "
+        s += " ]\n"
         return s
-    
