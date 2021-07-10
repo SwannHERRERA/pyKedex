@@ -5,6 +5,8 @@ from parser.types import parse_type
 from parser.item import parse_item
 from parser.move import parse_move
 from parser.location import parse_location
+from img_process.img_transform import ImgTransformer
+
 import typer
 
 app = typer.Typer()
@@ -74,6 +76,16 @@ def get_location(param):
     location_json = res.json()
     location = parse_location(location_json)
     print(location)
+
+
+@app.command()
+def display_image(param):
+    res = requests.get(config.baseUrl + f"/pokemon/{param}")
+    poke = res.json()
+    pokemon = parse_pokemon(poke)
+    image = ImgTransformer(pokemon.img_url)
+    print(pokemon.img_url)
+    print(image.pixels_to_ascii())
 
 
 if __name__ == "__main__":
