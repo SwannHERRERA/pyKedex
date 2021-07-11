@@ -22,8 +22,11 @@ def get_pokemon_by_name(name: str):
 
 
 @app.command()
-def list_pokemons():
-    """"""
+def list_pokemons(page_indice):
+    pokemons = PokeApiInteractor.list_pokemons(page_indice)
+    print("number total of pokemon: " + str(pokemons["count"]))
+    for pokemon in pokemons["results"]:
+        print(pokemon["name"])
 
 
 @app.command()
@@ -62,10 +65,12 @@ def get_actions():
     actions = logger.get_actions()
     print(actions)
 
+
 @app.command()
 def get_all_actions():
     actions = logger.get_all_actions()
     print(actions)
+
 
 @app.command()
 def get_errors():

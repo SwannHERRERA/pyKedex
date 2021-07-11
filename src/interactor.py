@@ -12,6 +12,14 @@ from config import config
 class PokeApiInteractor:
     @staticmethod
     @log
+    def list_pokemons(page):
+        """list pokemons with pagination (step of 20)"""
+        res = requests.get(f"{config.base_url}/pokemon?offset={int(page)*20}&limit=20")
+        pokes = res.json()
+        return pokes
+
+    @staticmethod
+    @log
     def get_pokemon(param):
         """get pokemon"""
         res = requests.get(f"{config.base_url}/pokemon/{param}")
