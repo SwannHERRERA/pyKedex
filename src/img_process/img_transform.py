@@ -9,7 +9,7 @@ class ImgTransformer:
         "@M%WXmBU&ZQ$dpOLwh8kYCn#bqaxJoIuf0}(])[{tz|/jvc\\?l+*ri<1>!^~_\";-,`:'. "
     )
 
-    def __init__(self, img_url, output_file, char_list=None):
+    def __init__(self, img_url, output_file=config.img_path, char_list=None):
         self.img_url = img_url
         self.output_file = output_file
         self.load_img_from_url()

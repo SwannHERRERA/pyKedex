@@ -1,6 +1,7 @@
 class Config:
-    def __init__(self, baseUrl):
-        self.baseUrl = baseUrl
+    def __init__(self, base_url, image_path):
+        self.baseUrl = base_url
+        self.image_path = image_path
 
 
 class PokeStat:
