@@ -18,6 +18,16 @@ class Logger:
     def log_error(self, message):
         self.history["error"].append(message)
 
+    def get_actions(self):
+        number_of_actions = 10
+        return self.history["journal"][-number_of_actions:]
+
+    def get_all_actions(self):
+        return self.history["journal"]
+
+    def get_errors(self):
+        return self.history["error"]
+
     def save(self):
         self.file.seek(0)
         json.dump(self.history, self.file)

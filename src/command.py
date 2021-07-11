@@ -2,6 +2,7 @@ from interactor import PokeApiInteractor
 from config import config
 import webbrowser
 import typer
+from logger import logger
 
 app = typer.Typer()
 
@@ -54,3 +55,19 @@ def get_item(identifier):
 def get_type(identifier):
     typ = PokeApiInteractor.get_type(identifier)
     print(typ)
+
+
+@app.command()
+def get_actions():
+    actions = logger.get_actions()
+    print(actions)
+
+@app.command()
+def get_all_actions():
+    actions = logger.get_all_actions()
+    print(actions)
+
+@app.command()
+def get_errors():
+    actions = logger.get_errors()
+    print(actions)

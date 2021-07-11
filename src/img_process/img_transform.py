@@ -3,6 +3,7 @@ import requests
 from PIL import Image
 import webbrowser
 from config import config
+from logger import logger
 
 
 class ImgTransformer:
@@ -21,6 +22,7 @@ class ImgTransformer:
         try:
             self.img = Image.open(requests.get(self.img_url, stream=True).raw)
         except IOError:
+            logger.log_error(f"fail to open image {self.img_url}")
             sys.exit(1)
 
     def resize(self, width: int, height: int):
@@ -48,5 +50,8 @@ class ImgTransformer:
 
     def save_to_file(self):
         ascii_image = self.pixels_to_ascii()
-        with open(self.output_file, "w") as f:
-            f.write(ascii_image)
+        try:
+            with open(self.output_file, "w") as f:
+                f.write(ascii_image)
+        except (IOError, OSError):
+            logger.log_error("fail to write image file")
