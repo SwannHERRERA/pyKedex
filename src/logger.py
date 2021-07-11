@@ -29,7 +29,8 @@ logger = Logger("history.json")
 def log(func):
     def wrap_func(*args, **kwargs):
         logger.log(f"{func.__doc__} {args}")
-        func(*args, **kwargs)
+        res = func(*args, **kwargs)
         logger.save()
+        return res
 
     return wrap_func

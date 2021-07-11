@@ -1,20 +1,23 @@
 from interactor import PokeApiInteractor
-from main import config
+from config import config
 import webbrowser
+import typer
+
+app = typer.Typer()
 
 
 @app.command()
 def get_pokemon_by_id(id: int):
     pokemon = PokeApiInteractor.get_pokemon(id)
     print(pokemon)
-    webbrowser.open(config.img_path)
+    webbrowser.open(config.image_path)
 
 
 @app.command()
 def get_pokemon_by_name(name: str):
     pokemon = PokeApiInteractor.get_pokemon(name)
     print(pokemon)
-    webbrowser.open(config.img_path)
+    webbrowser.open(config.image_path)
 
 
 @app.command()
