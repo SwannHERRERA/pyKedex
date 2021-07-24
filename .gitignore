@@ -132,3 +132,4 @@ dmypy.json
 /image.txt
 # history file
 /history.json
+.idea/
