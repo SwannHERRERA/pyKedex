@@ -16,6 +16,7 @@ class Logger:
         self.history["journal"].append(message)
 
     def log_error(self, message):
+        print(message)
         self.history["error"].append(message)
 
     def get_actions(self):

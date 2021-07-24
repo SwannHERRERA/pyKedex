@@ -1,5 +1,11 @@
 # pyKedex
 
+pour lancé l'application utilisé la commande :
+
+`python src/main.py`
+
+Et puis laissé vous guider par les informations de commande
+
 ## fonctionnalité de base d'un pokedex
 
  - recherche de pokemon
@@ -11,3 +17,5 @@
 ## Conversion image to ascii
 
 ## Historisation et journalisation des recherches
+
+## Commande
