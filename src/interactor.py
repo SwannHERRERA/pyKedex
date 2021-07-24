@@ -1,12 +1,14 @@
-import requests
+from parser.item import parse_item
+from parser.location import parse_location
+from parser.move import parse_move
 from parser.pokemon import parse_pokemon
 from parser.types import parse_type
-from parser.item import parse_item
-from parser.move import parse_move
-from parser.location import parse_location
+
+import requests
+
+from config import config
 from img_process.img_transform import ImgTransformer
 from logger import log, logger
-from config import config
 
 
 class PokeApiInteractor:

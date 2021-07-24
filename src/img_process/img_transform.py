@@ -8,7 +8,7 @@ from logger import logger
 
 class ImgTransformer:
     ascii_char = list(
-        "@M%WXmBU&ZQ$dpOLwh8kYCn#bqaxJoIuf0}(])[{tz|/jvc\\?l+*ri<1>!^~_\";-,`:'. "
+        "@M%WX#BU&ZQ$dpOLwh8kYCmnbqaxJoIuf0}(])[{tz|/jvc\\?l+*ri<1>!^~_\";-,`:'. "
     )
 
     def __init__(self, img_url, output_file=config.image_path, char_list=None):
