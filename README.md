@@ -1,5 +1,12 @@
 # pyKedex
 
+## Prérequis
+
+Pour lancé cette application vous aurez besoin d'un python3
+et d'installer les dépendances requise que vous pouvez trouvez dans requirements.txt
+
+## Lancement de l'application
+
 pour lancé l'application utilisé la commande :
 
 `python src/main.py`
@@ -16,8 +23,8 @@ Et puis laissé vous guider par les informations de commande
   
 ## Conversion image to ascii
 
-Avec le pyKedex quand on lance une recherche de pokemon l'image du pokemon nous est montré dans l'éditeur de texte par défaut de la machine hôte. Pour ce faire nous transformons l'image récupérée sur l'API en ASCII art.
-Cela ce fait en 3 temps, d'abord on retaille l'image, ensuite on transforme chaque pixel en une nuance de gris et pour finir on remplace le pixel gris par un caractère plus ou moins remplis en fonction de son obsurité.
+Avec le pyKedex quand on lance une recherche de pokemon l'image du pokemon nous est montrée dans l'éditeur de texte par défaut de la machine hôte. Pour ce faire nous transformons l'image récupérée sur l'API en ASCII art.
+Cela se fait en 3 temps, d'abord on retaille l'image, ensuite on transforme chaque pixel en une nuance de gris et pour finir on remplace le pixel gris par un caractère plus ou moins rempli en fonction de son obscurité.
 
 ## Historisation et journalisation des recherches
 
