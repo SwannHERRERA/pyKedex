@@ -13,14 +13,15 @@ pour lancé l'application utilisé la commande :
 
 Et puis laissé vous guider par les informations de commande
 
-## fonctionnalité de base d'un pokedex
+## fonctionnalité du pokedex
 
  - recherche de pokemon
  - recherche de type
  - recherche d'attaque
  - recherche de lieu
  - recherche d'objet
-  
+ - recherche de la ligne d'évolution d'un pokemon
+ - gestion de l'historique et des erreurs
 ## Conversion image to ascii
 
 Avec le pyKedex quand on lance une recherche de pokemon l'image du pokemon nous est montrée dans l'éditeur de texte par défaut de la machine hôte. Pour ce faire nous transformons l'image récupérée sur l'API en ASCII art.
@@ -41,11 +42,12 @@ Pour finir il est possible d'afficher son historique, soit l'historique récent,
 - get-all-action (No param) liste toutes les actions
 - get-errors (No param) listes toutes les erreurs
 ### action liée au pokedex
-- get-item (name or id)
-- get-location (name or id)
-- get-move (name or id)
-- get-pokemon-by-id (id)
-- get-pokemon-by-name (name)
-- get-type (name or id)
-- list-pokemons (No param)
+- get-item (item name or id)
+- get-location (location name or id)
+- get-move (move name or id)
+- get-pokemon-by-id (pokemon id)
+- get-pokemon-by-name (pokemon name)
+- get-evolution (pokemon name or id)
+- get-type (type or id)
+- list-pokemons (number of page (30 by 30))
 - list-types (No param)
