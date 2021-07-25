@@ -26,6 +26,14 @@ def get_pokemon_by_name(name: str):
 
 
 @app.command()
+def get_evolution(identifier):
+    evolution = PokeApiInteractor.get_evolution(identifier)
+    if evolution is None:
+        return
+    print(evolution)
+
+
+@app.command()
 def list_pokemons(page_indice):
     pokemons = PokeApiInteractor.list_pokemons(page_indice)
     if pokemons is None:

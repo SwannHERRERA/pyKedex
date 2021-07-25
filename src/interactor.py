@@ -3,6 +3,7 @@ from parser.location import parse_location
 from parser.move import parse_move
 from parser.pokemon import parse_pokemon
 from parser.types import parse_type
+from parser.evolution import parse_evolve
 
 import requests
 
@@ -39,6 +40,27 @@ class PokeApiInteractor:
         image = ImgTransformer(pokemon.img_url)
         image.save_to_file()
         return pokemon
+
+    @staticmethod
+    @log
+    def get_evolution(param):
+        """get evolution"""
+        try:
+            res = requests.get(f"{config.base_url}/pokemon/{param}")
+            poke = res.json()
+            specie_url = poke["species"]["url"]
+            res_specie = requests.get(specie_url)
+            specie = res_specie.json()
+            evolution_chain_url = specie["evolution_chain"]["url"]
+            res_evolution_chain = requests.get(evolution_chain_url)
+            row_evolution_chain = res_evolution_chain.json()
+            evolution_chain = parse_evolve(row_evolution_chain)
+            return evolution_chain
+        except:
+            logger.log_error(
+                f"Erreur lors de la récupération de la chaine d'évolution du pokemon {param}"
+            )
+            return
 
     @staticmethod
     @log
